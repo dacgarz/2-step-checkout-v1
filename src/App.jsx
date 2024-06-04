@@ -1,12 +1,10 @@
-import {Auth, store} from "@cleeng/mediastore-sdk";
-import {Provider} from "react-redux";
-
-import "@adyen/adyen-web/dist/adyen.css";
-import "react-loading-skeleton/dist/skeleton.css";
-import CheckoutRegister from "./components/CheckoutRegister.jsx";
-import {useEffect, useState} from "react";
-import {MindStamp} from "./components/MindStamp.jsx";
-import PurchaseWrapper from "./components/PurchaseWrapper.jsx";
+import React, { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
+import Auth from './Auth';
+import MindStamp from './MindStamp';
+import CheckoutRegister from './CheckoutRegister';
+import PurchaseWrapper from './PurchaseWrapper';
 
 function App(props) {
     const [checkoutStep, setCheckoutStep] = useState('register');
@@ -22,10 +20,6 @@ function App(props) {
 
     return (
         <Provider store={store}>
-            {checkoutStep === 'mindstamp' && <MindStamp onClose={() => {
-                window.scrollTo(0, 0);
-                setCheckoutStep('register');
-            }}/>}
             {checkoutStep === 'register' && <CheckoutRegister
                 showCleengCapture={!!props.moduleSettings.capture}
                 publisherId={'686320448'}
@@ -40,4 +34,4 @@ function App(props) {
     );
 }
 
-export default App
+export default App;

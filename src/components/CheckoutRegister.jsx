@@ -31,6 +31,7 @@ import {
 } from "@cleeng/mediastore-sdk/dist/api/index.js";
 import { Auth } from "@cleeng/mediastore-sdk";
 
+
 const captureSettings = [
     {
         key: "custom_1",
@@ -59,7 +60,7 @@ const captureSettings = [
         question: "Is there a specific pet health concern?",
         answer: null,
     },
-];
+]; 
 
 function CheckoutRegister(props) {
     const [email, setEmail] = useState("");
@@ -325,13 +326,6 @@ function CheckoutRegister(props) {
         <RegisterWrapperStyled>
             <Header />
             <ContentWrapperStyled>
-                <img
-                    className={'mt-12 w-full h-auto px-[10px]'}
-                    src={props.welcomeBannerUrl}
-                    alt={"Welcome to the Pack! Let's get you started with free access to DOGTV content."}
-                    width={1200}
-                    height={300}
-                />
                 <FromStyled onSubmit={handleSubmit} noValidate>
                     <FormErrorStyled dangerouslySetInnerHTML={{ __html: generalError }} />
                     <EmailInput
@@ -381,7 +375,7 @@ function CheckoutRegister(props) {
                         onBlur={validateLastName}
                         error={errors.lastName}
                     />
-                    {props.showCleengCapture && (
+                     {/* props.showCleengCapture && (
                         captureSettings.map((setting, index) => {
                             return (
                                 <CaptureBoxStyled>
@@ -404,7 +398,7 @@ function CheckoutRegister(props) {
                                 </CaptureBoxStyled>
                             );
                         })
-                    )}
+                    )*/} 
                     <Consent error={errors.consents} onChangeFn={handleConsentsChange} />
                     <Button
                         type="submit"

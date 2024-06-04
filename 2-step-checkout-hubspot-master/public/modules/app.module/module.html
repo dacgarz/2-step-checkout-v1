@@ -1,0 +1,17 @@
+{{ require_css(get_asset_url('../../index.css')) }}
+{% set file = file_by_id(162193268856) %}
+{{ require_js(file.friendlyUrl, 'footer') }}
+{%- set instance_id = name %}
+{%- set logo_url = get_asset_url('../../DOGTV-Logo-White-Cropped.png') %}
+{%- set welcome_banner_url = get_asset_url('../../WelcomePackBanner.jpg') %}
+
+<div class="cleeng-checkout">
+  <script type="application/json"
+    data-module-instance="{{ instance_id }}"
+    data-logo-url="{{ logo_url }}"
+    data-welcome-banner-url="{{ welcome_banner_url }}"
+    data-portal-id="{{ portal_id }}">
+      {{ module|tojson }}
+  </script>
+  <div id="App--{{ instance_id }}"></div>
+</div>

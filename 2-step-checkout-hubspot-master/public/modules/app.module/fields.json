@@ -1,0 +1,47 @@
+[
+  {
+    "label": "Cleeng Offer ID",
+    "name": "cleeng_offer_id",
+    "required": true,
+    "type": "text",
+    "default": ""
+  },
+  {
+    "label": "Promo Code (optional, autofilled)",
+    "name": "cleeng_promo_code",
+    "required": false,
+    "type": "text"
+  },
+  {
+    "label": "Marketing Channel (optional, for tracking)",
+    "name": "marketing_channel",
+    "required": false,
+    "type": "text"
+  },
+  {
+    "name" : "capture",
+    "label" : "Enable Cleeng Capture Questions",
+    "required" : true,
+    "type" : "boolean",
+    "display":"checkbox",
+    "inline_help_text" : "Shows Cleeng Capture questions for users registering for the first time",
+    "help_text" : "Cleeng Capture questions are used to collect additional information from the user.",
+    "default" : false
+  },
+  {
+    "name" : "page_black",
+    "label" : "Make Page Background Black",
+    "required" : true,
+    "type" : "boolean",
+    "display":"checkbox",
+    "default" : false
+  },
+  {
+    "name" : "hide_nav",
+    "label" : "Hide Default Navigation",
+    "required" : true,
+    "type" : "boolean",
+    "display":"checkbox",
+    "default" : false
+  }
+]

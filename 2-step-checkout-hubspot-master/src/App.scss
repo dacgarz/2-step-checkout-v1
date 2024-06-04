@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$dogtv-orange: #ff8016;
+$dogtv-blue: #3d67a8;
+
+@layer base {
+  html .cleeng-checkout * {
+    font-family: "Montserrat", sans-serif;
+  }
+  body {
+    margin: 0;
+  }
+}
+
+// 2-Step Checkout Styles
+.cleeng-checkout {
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+
+  > *:not(.min-h-screen) {
+    min-height: 100%;
+  }
+}
+
+// Mindstamp overrides
+
+.lity-container {
+  .lity-close {
+    background-color: transparent !important;
+    color: white !important;
+    width: 60px;
+    height: 60px;
+    img {
+      display: none;
+    }
+    &::after {
+      content: "✕";
+      font-size: 50px;
+    }
+  }
+}
+
+// Hubspot compatibility
+
+footer.footer {
+  display: block;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hhs-social-con {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+// Tailwind overrides for HubSpot compatibility
+
+.p-5 {
+  padding: 1.25rem !important;
+}
+
+.p-4 {
+  padding: 1rem !important;
+}
+
+.password-reset-success {
+  div {
+    background-color: black;
+    * {
+      color: white;
+    }
+  }
+}
+
+div.msd__error-page {
+  > * {
+    background-color: black;
+    * {
+      color: white;
+    }
+  }
+}
+
+
+// Cleeng widget overrides
+
+html {
+  .checkout-wrapper {
+    > * > * {
+      background-color: black;
+      * {
+        color: white;
+      }
+    }
+  }
+  .msd__auth-wrapper, .free-access-app, .msd__error-page, .upgrade-wrapper, .checkout-wrapper {
+    background-color: black;
+    main, .msd__offer-card, .msd__payment, .msd__header, .msd__footer, .msd__subscription-card__icon {
+      background-color: black;
+    }
+
+    .msd__section-header, .msd__subscription-price, .msd__price-summary, .msd__reset-password__title, .msd__reset-password__message, .msd__footer__label--left, .msd__button--link, .msd__input__label, .msd__consents__text, .msd__consents__text a, .msd__input, .msd__subscription-card__icon {
+      color: white;
+      * {
+        color: white;
+      }
+    }
+
+    .msd__subscription-card__icon {
+      border-width: 2px;
+    }
+
+    .msd__input__label {
+      &::after {
+        background-color: black;
+      }
+    }
+
+    .msd__consents__text {
+      a {
+        &:hover, &:focus {
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .msd__footer__label--right {
+      display: flex;
+      align-items: center;
+      color: white;
+
+      svg path {
+        fill: white !important;
+      }
+    }
+
+    .msd__input__wrapper {
+      &:focus-within, &:hover {
+        border-color: $dogtv-orange;
+        label {
+          color: $dogtv-orange;
+        }
+      }
+    }
+
+    .msd__error {
+      color: $dogtv-orange;
+    }
+
+    .msd__button--confirm, .msd__button--primary, .msd__coupon-input__close {
+      background-color: $dogtv-orange;
+      color: white;
+      &:focus, &:hover {
+        background-color: lighten($dogtv-orange, 5%);
+      }
+    }
+
+    .msd__button--secondary {
+      background-color: $dogtv-blue;
+      border: none;
+      color: white;
+      &:hover, &:focus {
+        background-color: lighten($dogtv-blue, 5%);
+        border: none;
+      }
+    }
+
+    .msd__header .msd__header__logo {
+      background-size: auto 70%;
+    }
+
+    .msd__checkout-card-price__badge {
+      background-color: $dogtv-orange;
+      color: white;
+      border: none;
+    }
+
+    .msd__coupon-input__wrapper {
+      max-width: 305px;
+    }
+
+    .msd__coupon-input__wrapper--inner {
+      border: none;
+    }
+
+    .msd__coupon-input__input {
+      color: black;
+    }
+
+    h2, p {
+      color: white;
+    }
+
+    .msd__consents__check-mark {
+      display: none;
+    }
+
+    .msd__consents__frame--checked {
+      &::after {
+        content: "✓";
+        display: block;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+      }
+    }
+
+    .msd__select__wrapper {
+      .react-select__control {
+        background-color: black;
+        &.react-select__control--is-focused {
+          &:focus-within {
+            border-color: $dogtv-orange;
+          }
+        }
+      }
+
+      .react-select__dropdown-indicator {
+        svg {
+          fill: white;
+        }
+      }
+
+      .react-select__single-value, .react-select__placeholder {
+        color: white;
+        text-align: left;
+      }
+
+      .react-select__menu {
+        background-color: black;
+
+        .react-select__option {
+          color: white;
+
+          &:hover, &.react-select__option--is-focused {
+            background-color: $dogtv-blue;
+          }
+        }
+
+        .react-select__option--is-selected {
+          background-color: $dogtv-orange;
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .msd__error {
+        height: 30px;
+      }
+    }
+  }
+}
+
+// Adyen overrides
+
+.checkout-wrapper .msd__payment__adyen .adyen-checkout__payment-method {
+  background-color: black;
+  color: white;
+}
+
+.checkout-wrapper .msd__payment__adyen .adyen-checkout__payment-method--selected,
+.checkout-wrapper .msd__payment__adyen .adyen-checkout__label,
+.checkout-wrapper .msd__payment__adyen .adyen-checkout__input {
+  background-color: transparent;
+  color: white;
+  * {
+    color: inherit !important;
+  }
+}
+.checkout-wrapper .msd__payment__adyen .adyen-checkout__payment-method {
+  border-color: $dogtv-orange;
+}
+.checkout-wrapper .msd__payment__adyen .adyen-checkout__dropin .adyen-checkout__button {
+  background-color: $dogtv-orange;
+  color: white;
+  &:hover, &:focus {
+    background-color: lighten($dogtv-orange, 5%);
+  }
+}

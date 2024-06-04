@@ -9,7 +9,7 @@ import {MindStamp} from "./components/MindStamp.jsx";
 import PurchaseWrapper from "./components/PurchaseWrapper.jsx";
 
 function App(props) {
-    const [checkoutStep, setCheckoutStep] = useState(!!props.moduleSettings.mindstamp ? 'mindstamp' : 'register');
+    const [checkoutStep, setCheckoutStep] = useState('register');
     const cleengOfferId = props.moduleSettings['cleeng_offer_id'];
     const marketingChannel = props.moduleSettings['marketing_channel'];
     const promoCode = props.moduleSettings.hasOwnProperty('cleeng_promo_code') ? props.moduleSettings['cleeng_promo_code'] : undefined;
